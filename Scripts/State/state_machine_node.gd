@@ -28,6 +28,7 @@ func _ready():
 	if initial_state:
 		initial_state.Enter()
 		current_state = initial_state
+	# our version of 'previous_state'
 
 func _process(delta: float) -> void:
 	# checking if there is a current_state
@@ -58,8 +59,11 @@ func on_child_transition(state, new_state_name):
 		current_state.Exit() # exitiing the current state
 	# and enter into new state
 	new_state.Enter()
+
+	
 	# and make the new_state the current_state
 	current_state = new_state
+	
 	
 	
 	
