@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnci7l2rsla78"]
+[gd_scene load_steps=11 format=3 uid="uid://cnci7l2rsla78"]
 
 [ext_resource type="Script" uid="uid://dn1nvqxw5aokx" path="res://Scripts/enemy_slime.gd" id="1_7ws1o"]
 [ext_resource type="Texture2D" uid="uid://dmmt6vg2hpyg7" path="res://Assets/slime_purple.png" id="1_wksdo"]
+[ext_resource type="Script" uid="uid://brpfcpsa1swlh" path="res://Scripts/State/state_machine_node.gd" id="3_whq3f"]
+[ext_resource type="Script" uid="uid://c0dworrjjeud" path="res://Scripts/State/EnemyIdle.gd" id="4_664bg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ws1o"]
 atlas = ExtResource("1_wksdo")
@@ -48,9 +50,18 @@ script = ExtResource("1_7ws1o")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_8n5ka")
-frame_progress = 0.87262785
+frame_progress = 0.40049216
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
 position = Vector2(0, -6.125)
 shape = SubResource("RectangleShape2D_wksdo")
+
+[node name="StateMachine_Node" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_whq3f")
+initial_state = NodePath("EnemyIdle")
+
+[node name="EnemyIdle" type="Node" parent="StateMachine_Node" node_paths=PackedStringArray("enemy")]
+script = ExtResource("4_664bg")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://c0dworrjjeud"
