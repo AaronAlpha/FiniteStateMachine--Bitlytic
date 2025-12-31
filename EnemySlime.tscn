@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnci7l2rsla78"]
+[gd_scene load_steps=9 format=3 uid="uid://cnci7l2rsla78"]
 
+[ext_resource type="Script" uid="uid://dn1nvqxw5aokx" path="res://Scripts/enemy_slime.gd" id="1_7ws1o"]
 [ext_resource type="Texture2D" uid="uid://dmmt6vg2hpyg7" path="res://Assets/slime_purple.png" id="1_wksdo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ws1o"]
@@ -42,11 +43,12 @@ animations = [{
 size = Vector2(9.5, 9.75)
 
 [node name="EnemySlime_CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_7ws1o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_8n5ka")
-frame_progress = 0.17898293
+frame_progress = 0.87262785
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
