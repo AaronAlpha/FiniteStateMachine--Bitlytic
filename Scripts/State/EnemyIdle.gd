@@ -10,6 +10,10 @@ class_name EnemyIdle
 # then in PhysicsUpdate()... (refer back down to PhysicsUpdate func)
 
 
+# to start with Transitioning from Idle to Follow, have to refernce the player first
+var player : CharacterBody2D
+
+
 #inside this state (the EnemyIdle state) we have the 2 variables below
 var move_dir : Vector2
 var wander_time : float
@@ -22,6 +26,9 @@ func randomize_wander():
 
 # and then when we Enter() this state (EnemyIdle state), we call the randomizer func
 func Enter():
+	
+	player = get_tree().get_first_node_in_group("Player")
+	
 	randomize_wander()
 
 func Update(delta : float):
@@ -46,4 +53,12 @@ func PhysicsUpdate(_delta : float):
 		
 	# this makes sense, becoz 'enemy' is an object of the CharacterBody2D class, which has 
 	# class variable Velocity etc
+	
+	# getting direction between player and enemy
+	var direction = player.global_position - enemy.global_position
+	
+	# if distance (direction) is within some threshold, we transition from Idle to Follow
+	if direction.length() < 300:
+		Transitioned.emit(self, "EnemyFollow")
+	
 	
