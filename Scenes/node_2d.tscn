@@ -147,7 +147,7 @@ tile_map_data = PackedByteArray("AADn/wAAAAAAAAAAAADo/wAAAAAAAAAAAADp/wAAAAAAAAA
 tile_set = SubResource("TileSet_hh5uf")
 
 [node name="Knight_CharacterBody2D" parent="." instance=ExtResource("2_hh5uf")]
-position = Vector2(-263, 0)
+position = Vector2(-152, 1)
 
 [node name="Camera2D" type="Camera2D" parent="Knight_CharacterBody2D"]
 

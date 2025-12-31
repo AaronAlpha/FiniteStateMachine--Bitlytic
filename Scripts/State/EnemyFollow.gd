@@ -25,9 +25,9 @@ func PhysicsUpdate(_delta : float):
 		enemy.velocity = Vector2()
 
 		#
-	## Transitioning between states is state-dependent; following is transitioning between follow and idle
-	## want follow state to go back to being idle once reached a certain threshold
-	#if direction.length() > 50:
-		#Transitioned.emit(self, "EnemyIdle")
-		## above passes in 'self' (which is the current_state) and 'idle' (which is the new_state we want to 
-		## Transition to)
+	# Transitioning between states is state-dependent; following is transitioning between follow and idle
+	# want follow state to go back to being idle once reached a certain threshold
+	if direction.length() > 100:
+		Transitioned.emit(self, "EnemyIdle")
+		# above passes in 'self' (which is the current_state) and 'idle' (which is the new_state we want to 
+		# Transition to)
