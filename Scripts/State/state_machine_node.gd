@@ -57,7 +57,7 @@ func on_child_transition(state, new_state_name):
 	if current_state:
 		current_state.exit() # exitiing the current state
 	# and enter into new state
-	new_state.enter
+	new_state.enter()
 	# and make the new_state the current_state
 	current_state = new_state
 	

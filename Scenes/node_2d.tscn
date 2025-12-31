@@ -150,7 +150,6 @@ tile_set = SubResource("TileSet_hh5uf")
 position = Vector2(-263, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Knight_CharacterBody2D"]
-zoom = Vector2(4, 4)
 
 [node name="EnemySlime_CharacterBody2D" parent="." instance=ExtResource("3_6whob")]
 position = Vector2(-111, 1)
