@@ -20,7 +20,7 @@ var wander_time : float
 
 # also have a function to randomize these variables
 func randomize_wander():
-	move_dir = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
+	move_dir = Vector2(randf_range(-1, 1), 0).normalized()
 	wander_time = randf_range(1, 3)
 
 
